@@ -19,7 +19,7 @@ app.use (express.urlencoded({extended: true}));
 //Parse JSON bodies (as sent by API clients)
 app.use(express.json());
 
-app.get('/', (req, res)=> {
+//app.get('/', (req, res)=> {
 //     // const user = new User({
 //     //     email: "example@example.com",
 //     //     password: "password123"
@@ -27,11 +27,11 @@ app.get('/', (req, res)=> {
 //     // await user.save();
 //     //res.send({someText: "Hello"});
 //     res.status(200).json({someText: "Hello"})
-    res.send('/')
-});
+//});
 app.post('/register', async(req, res)=>{
-    console.log(await req.body);
-    const user = new User(await req.body);
+    // console.log(await req.body);
+    // const user = new User(await req.body);
+    const user = new User(req.body);
     await user.save();
     res.status(200).json({
         message: 'Form data received'
