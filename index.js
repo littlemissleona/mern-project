@@ -5,7 +5,7 @@ const keys = require('./config/keys');
 const User = require('./models/User');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(keys.mongoURI.toString(), {
+mongoose.connect(keys.mongoURI, {
     useNewUrlParser: true, 
     useCreateIndex: true,
     useFindAndModify: false,
@@ -20,15 +20,15 @@ app.use (express.urlencoded({extended: true}));
 //Parse JSON bodies (as sent by API clients)
 app.use(express.json());
 
-app.get('/', async(req, res)=> {
-    // const user = new User({
-    //     email: "example@example.com",
-    //     password: "password123"
-    // })
-    // await user.save();
-    //res.send({someText: "Hello"});
-    res.status(200).json({someText: "Hello"})
-});
+// app.get('/', async(req, res)=> {
+//     // const user = new User({
+//     //     email: "example@example.com",
+//     //     password: "password123"
+//     // })
+//     // await user.save();
+//     //res.send({someText: "Hello"});
+//     res.status(200).json({someText: "Hello"})
+// });
 app.post('/register', async(req, res)=>{
     console.log(await req.body);
     const user = new User(await req.body);
