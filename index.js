@@ -5,7 +5,7 @@ const keys = require('./config/keys');
 const User = require('./models/User');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(keys.mongoURI, {
+mongoose.connect(keys.mongoURI.toString(), {
     useNewUrlParser: true, 
     useCreateIndex: true,
     useFindAndModify: false,
