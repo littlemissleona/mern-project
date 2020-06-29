@@ -29,8 +29,8 @@ app.use(express.json());
 //     res.status(200).json({someText: "Hello"})
 //});
 app.post('/register', async(req, res)=>{
-    // console.log(await req.body);
-    // const user = new User(await req.body);
+    // console.log(req.body);
+    // const user = new User(req.body);
     const user = new User(req.body);
     await user.save();
     res.status(200).json({
